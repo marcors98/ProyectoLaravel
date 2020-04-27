@@ -14,3 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::apiResource('tareas', 'TareasApiController');
+
+// API Searches
+Route::get('/tareasfiltradas', 'TareasApiController@search');
+
+/*// Admin Invalidation at API Sign-in
+Route::get('/soloTrabajadores',
+    function() {
+        return ["mensaje" => "Este servicio es solo para trabajadores locooo"];
+    }
+)->name('api.soloTrabajadores');
