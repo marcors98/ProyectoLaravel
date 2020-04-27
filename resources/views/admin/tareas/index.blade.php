@@ -87,7 +87,6 @@
                             <th>ID</th>
                             <th>ID Usuario</th>
                             <th>Estado</th>
-                            <th>Foto</th>
                             <th>Fecha</th>
                             <th>Descripción</th>
                             <th>Acciones</th>
