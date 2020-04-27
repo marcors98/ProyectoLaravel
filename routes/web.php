@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Admin login/dashboard routes
+Route::get('/', 'AdminController@dashboard') -> name('admin.dashboard');
+Route::get('/admin', 'AdminController@dashboard') -> name('admin.dashboard');
+Route::get('/home', 'AdminController@dashboard')->name('admin.dashboard');
+Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+
+// Atajo para establecer las 7 rutas básicas de un recurso (index, show, create, store, edit, update, destroy)
+Route::resource('tareas', 'Admin\TareasController');
+Route::resource('usuarios', 'Admin\UsuarioController');
+
+// Search route
+Route::get('/searchTareas', 'Admin\TareasController@search');
+Route::get('/searchUsuarios', 'Admin\UsuarioController@search');
